@@ -5,26 +5,19 @@
  * @format
  */
 
-import React, {useCallback, useEffect, useState} from 'react';
-import type {PropsWithChildren} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   SafeAreaView,
   ScrollView,
   StatusBar,
-  StyleSheet,
   Text,
   TouchableOpacity,
   useColorScheme,
   View,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+import SharedDefaults from './SharedDefaults';
 
 type Todo = {
   id: number;
@@ -112,8 +105,8 @@ function App(): JSX.Element {
   };
 
   useEffect(() => {
-    //TODO userDefault
-  }, []);
+    SharedDefaults.set(todos);
+  }, [todos]);
 
   return (
     <SafeAreaView style={backgroundStyle}>
